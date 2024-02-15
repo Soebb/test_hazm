@@ -1,17 +1,24 @@
 from dotenv import load_dotenv
 import os
+import subprocess
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from hazm import *
 n = Normalizer()
 load_dotenv()
-
 Bot = Client(
     "PersianT2SBot",
     bot_token = os.environ["BOT_TOKEN"],
     api_id = int(os.environ["API_ID"]),
     api_hash = os.environ["API_HASH"]
 )
+c = ["g++", "-Wall", "kasre_ezafeh.cpp", "hazm.cpp", "hazm.h", "-o", "ezafeh", "python3-config", "--ldflags", "--embed"]
+compile_process = subprocess.run(c, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+if compile_process.returncode == 0: 
+    print("Compilation successful.")
+else:
+    print("Compilation failed.") 
+    print(compile_process.stderr.decode())
 
 
 START_TXT = """
@@ -41,7 +48,10 @@ async def start(bot, update):
 @Bot.on_message(filters.private & filters.text)
 async def t2s(bot, m):
     input = m.text
-    out = n.normalize(input)
+    run_process = subprocess.run("./ezafeh", stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=input)
+    error = run_process.stderr.decode()
+    print(error)
+    out = run_process.stdin.decode()
     msg = await m.reply(out)
 
 
