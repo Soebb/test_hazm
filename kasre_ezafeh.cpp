@@ -8,7 +8,9 @@ int main()
 {
     Normalizer normalizer;
     POSTagger tagger("pos_tagger.model");
-    std::string normlized_text = normalizer.normalize("جعبه اسرار این معما در پناه حق باز شده است.");
+    std::cout << "Enter text:";
+    getline(cin, str);
+    std::string normlized_text = normalizer.normalize(str);
     std::string  processed_sentences = "";
     for (auto &sentence: sent_tokenize(normlized_text)) {
         std::vector<std::string> words = word_tokenize(sentence);
