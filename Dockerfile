@@ -5,6 +5,6 @@ RUN python3 -m venv venv
 WORKDIR /app
 COPY . ./
 RUN pip3 install -r requirements.txt
-RUN apt-get install g++
+RUN apt-get install build-essential
 EXPOSE 5000
 CMD ["python3", "bot.py"]
