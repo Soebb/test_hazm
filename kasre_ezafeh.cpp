@@ -9,6 +9,7 @@ int main()
     Normalizer normalizer;
     POSTagger tagger("pos_tagger.model");
     std::cout << "Enter text:";
+    std::string input;
     std::getline(std::cin, input);
     std::string normlized_text = normalizer.normalize(input);
     std::string  processed_sentences = "";
