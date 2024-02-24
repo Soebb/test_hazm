@@ -1,6 +1,6 @@
 #include "hazm.h"
 
-#include <Python.h>
+#include <python3.11/Python.h>
 
 #include <iostream>
 #include <unordered_map>
