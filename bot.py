@@ -12,8 +12,8 @@ Bot = Client(
     api_id = int(os.environ["API_ID"]),
     api_hash = os.environ["API_HASH"]
 )
-c = ["g++", "-Wall", "kasre_ezafeh.cpp", "hazm.cpp", "hazm.h", "-o", "ezafeh"]
-os.system('python3.10-config --ldflags --embed')
+c = ["g++", "-I/usr/include/python3.10" ,"-Wall", "kasre_ezafeh.cpp", "hazm.cpp", "hazm.h", "-o", "ezafeh"]
+#os.system('python3-config --ldflags --embed')
 compile_process = subprocess.run(c, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 if compile_process.returncode == 0: 
     print("Compilation successful.")
