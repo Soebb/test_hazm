@@ -9,8 +9,8 @@ int main()
     Normalizer normalizer;
     POSTagger tagger("pos_tagger.model");
     std::cout << "Enter text:";
-    std::getline(std::cin, str);
-    std::string normlized_text = normalizer.normalize(str);
+    std::getline(std::cin, input);
+    std::string normlized_text = normalizer.normalize(input);
     std::string  processed_sentences = "";
     for (auto &sentence: sent_tokenize(normlized_text)) {
         std::vector<std::string> words = word_tokenize(sentence);
