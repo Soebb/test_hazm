@@ -1,2 +1,2 @@
-hellomake: hellomake.c hellofunc.c hellomake.h
-	gcc -o hellomake hellomake.c hellofunc.c -I.
+ezafeh: kasre_ezafeh.cpp hazm.cpp
+	g++ -Wall kasre_ezafeh.cpp hazm.cpp -o ezafeh
