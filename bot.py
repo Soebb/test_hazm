@@ -3,8 +3,7 @@ import os
 import subprocess
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from hazm import *
-n = Normalizer()
+
 load_dotenv()
 Bot = Client(
     "PersianT2SBot",
@@ -12,6 +11,7 @@ Bot = Client(
     api_id = int(os.environ["API_ID"]),
     api_hash = os.environ["API_HASH"]
 )
+"""
 c = ["g++", "-Wall", "kasre_ezafeh.cpp", "hazm.cpp", "hazm.h", "-o", "ezafeh"]
 #os.system('python3-config --ldflags --embed')
 compile_process = subprocess.run(c, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -20,7 +20,7 @@ if compile_process.returncode == 0:
 else:
     print("Compilation failed.") 
     print(compile_process.stderr.decode())
-
+"""
 
 START_TXT = """
 Hi {}, I'm Persian TTS Bot.
