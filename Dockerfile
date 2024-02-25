@@ -6,6 +6,6 @@ WORKDIR /app
 COPY . ./
 RUN apt-get update && apt-get -y install python3-pip libpython3.11-dev build-essential make
 RUN pip3 install -r requirements.txt
-RUN make install
+RUN make
 EXPOSE 5000
 CMD ["python3", "bot.py"]
