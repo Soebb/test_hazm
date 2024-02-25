@@ -4,7 +4,8 @@ USER $USER
 RUN python3 -m venv venv
 WORKDIR /app
 COPY . ./
-RUN apt-get update && apt-get -y install python3-pip libpython3.11-dev build-essential
+RUN apt-get update && apt-get -y install python3-pip libpython3.11-dev build-essential make
 RUN pip3 install -r requirements.txt
+RUN make install
 EXPOSE 5000
 CMD ["python3", "bot.py"]
