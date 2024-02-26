@@ -43,7 +43,7 @@ async def t2s(bot, m):
     error = run_process.stderr.decode()
     print(error)
     out = run_process.stdout.decode()
-    msg = await m.reply(out)
+    msg = await m.reply(out.replace('Enter text:"', ''))
 
 
 Bot.run()
