@@ -6,6 +6,6 @@ WORKDIR /app
 COPY . ./
 RUN apt-get update && apt-get -y install python3-pip python3-dev build-essential make
 RUN pip3 install -r requirements.txt
-RUN make LIBS="$(python3-config --ldflags --embed)"
+RUN make
 EXPOSE 5000
 CMD ["python3", "bot.py"]
